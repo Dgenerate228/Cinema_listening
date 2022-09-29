@@ -30,8 +30,8 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/barrierBottom"
-        app:layout_constraintEnd_toEndOf="@+id/photoImageView"
-        app:layout_constraintStart_toStartOf="@+id/photoImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/photoImageView" />
 
 

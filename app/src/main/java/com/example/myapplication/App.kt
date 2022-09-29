@@ -6,4 +6,5 @@ import com.example.myapplication.model.FilmService
 class App : Application() {
 
     val filmService = FilmService()
+
 }

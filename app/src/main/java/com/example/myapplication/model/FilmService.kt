@@ -1,25 +1,26 @@
 package com.example.myapplication.model
 
-
+import com.example.myapplication.model.FilmModel
 import java.util.Collections.shuffle
 
-//typealias FilmListener = (filmList: List<FilmModel>) -> Unit
 
 class FilmService {
 
-    var filmList = mutableListOf<FilmModel>()
+    val filmList: List<FilmModel> = createMovies()
 
-    //private val listeners = mutableListOf<FilmListener>()
+    private fun createMovies() = mutableListOf<FilmModel>().apply {
+        (0..100).map { addMovie(it) }.also { shuffle() }
+    }
 
-    init {
-        filmList = (1..100).map {
+    private fun MutableList<FilmModel>.addMovie(id: Int) {
+        add(
             FilmModel(
-                id = it.toLong(),
-                image = IMAGES[it % IMAGES.size],
-                name = FILMNAME[it % FILMNAME.size],
-                description = FILMDESCRIP[it % FILMDESCRIP.size]
+                id = id.toLong(),
+                image = IMAGES[id % IMAGES.size],
+                name = FILMNAME[id % FILMNAME.size],
+                description = FILMDESCRIP[id % FILMDESCRIP.size]
             )
-        }.toMutableList().also { shuffle(filmList) }
+        )
     }
 
     companion object {
@@ -60,8 +61,6 @@ class FilmService {
             "Четверо молодых парней накопили каждый по 25 тысяч фунтов, чтобы один из них мог сыграть в карты с опытным шулером и " +
                     "матерым преступником, известным по кличке Гарри-Топор. " +
                     "Парень в итоге проиграл 500 тысяч, на уплату долга ему дали неделю."
-
-
         )
 
         private val IMAGES = mutableListOf(

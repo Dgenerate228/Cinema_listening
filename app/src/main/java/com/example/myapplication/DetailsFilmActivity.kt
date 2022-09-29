@@ -5,18 +5,21 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.myapplication.databinding.SecondActivityBinding
+import com.example.myapplication.databinding.DetailsFilmActivityBinding
 
-class SecondActivity : AppCompatActivity() {
+class DetailsFilmActivity : AppCompatActivity() {
 
-    private lateinit var binding: SecondActivityBinding
+    private lateinit var binding: DetailsFilmActivityBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = SecondActivityBinding.inflate(layoutInflater).also { setContentView(it.root) }
-        binding.secondPhotoImageView.findViewById<ImageView>(R.id.secondPhotoImageView).also { onGet() }
+        binding =
+            DetailsFilmActivityBinding.inflate(layoutInflater).also { setContentView(it.root) }
+        binding.secondPhotoImageView.findViewById<ImageView>(R.id.secondPhotoImageView)
+            .also { onGet() }
         binding.secondFilmName.findViewById<TextView>(R.id.secondFilmName).also { onGet() }
-        binding.secondFilmDescription.findViewById<TextView>(R.id.secondFilmDescription).also { onGet() }
+        binding.secondFilmDescription.findViewById<TextView>(R.id.secondFilmDescription)
+            .also { onGet() }
     }
 
     private fun onGet() {
