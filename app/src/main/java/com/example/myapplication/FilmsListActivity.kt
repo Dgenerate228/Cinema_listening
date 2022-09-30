@@ -9,7 +9,7 @@ import com.example.myapplication.model.*
 
 private const val GRID_COUNT = 2
 
-class MainActivity : AppCompatActivity() {
+class FilmsListActivity : AppCompatActivity() {
 
     private lateinit var binding: FilmsListActivityRvBinding
     private lateinit var adapter: FilmAdapter
@@ -22,13 +22,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         adapter = FilmAdapter(onClicked = { openFilmDetails(it) })
         adapter.filmList = filmService.filmList
-        binding.filmsListRv.layoutManager = GridLayoutManager(this@MainActivity, GRID_COUNT)
+        binding.filmsListRv.layoutManager = GridLayoutManager(this@FilmsListActivity, GRID_COUNT)
         binding.filmsListRv.adapter = adapter
     }
 
     private fun openFilmDetails(film: FilmModel) {
         val intent = Intent(this, DetailsFilmActivity::class.java)
         intent.putExtra(DetailsFilmActivity.ID, binding.filmsListRv.id)
+      //  intent.putExtra((DetailsFilmActivity.FILM_NAME, binding.))
         startActivity(intent)
     }
 }

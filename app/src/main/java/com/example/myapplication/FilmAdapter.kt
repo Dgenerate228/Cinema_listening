@@ -33,7 +33,7 @@ class FilmAdapter(
             if (film.image.isNotBlank()) {
                 Glide.with(photoImageView.context)
                     .load(film.image)
-                    .circleCrop()
+                    //.circleCrop()
                     .placeholder(R.drawable.ic_launcher_foreground)
                     .error(R.drawable.ic_error)
                     .into(photoImageView)

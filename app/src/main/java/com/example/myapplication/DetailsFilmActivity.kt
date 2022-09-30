@@ -6,6 +6,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.databinding.DetailsFilmActivityBinding
+import com.example.myapplication.model.FilmModel
 
 class DetailsFilmActivity : AppCompatActivity() {
 
@@ -15,16 +16,20 @@ class DetailsFilmActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding =
             DetailsFilmActivityBinding.inflate(layoutInflater).also { setContentView(it.root) }
-        binding.secondPhotoImageView.findViewById<ImageView>(R.id.secondPhotoImageView)
-            .also { onGet() }
         binding.secondFilmName.findViewById<TextView>(R.id.secondFilmName).also { onGet() }
+
         binding.secondFilmDescription.findViewById<TextView>(R.id.secondFilmDescription)
+            .also { onGet() }
+
+        binding.secondPhotoImageView.findViewById<ImageView>(R.id.secondPhotoImageView)
             .also { onGet() }
     }
 
     private fun onGet() {
-        binding.secondFilmName.setText(intent.getCharSequenceExtra(ID))
-        binding.secondFilmDescription.setText(intent.getCharSequenceExtra(ID))
+       // binding.secondFilmName.setText(intent.getStringExtra())
+        binding.secondFilmName.setText(intent.getCharSequenceExtra(FILM_NAME))
+        binding.secondFilmDescription.setText(intent.getCharSequenceExtra(FILM_DESCRIPTION))
+        binding.secondPhotoImageView.setTag(intent.getStringExtra(FILM_IMAGE))
     }
 
     companion object {

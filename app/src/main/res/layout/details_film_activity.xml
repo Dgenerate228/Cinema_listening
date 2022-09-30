@@ -2,19 +2,21 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/secondPhotoImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/ic_error"
+        android:src = "@drawable/ic_launcher_foreground"
+        android:layout_width="300dp"
+        android:layout_height="340dp"
+        android:layout_marginHorizontal="8dp"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/content_description"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/secondFilmName"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/secondFilmName"
@@ -23,7 +25,8 @@
         android:ellipsize="end"
         android:gravity="center"
         android:lines="1"
-        android:text="@string/film_name"
+        android:text="Film name"
+        android:textStyle="bold"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/secondFilmDescription"
@@ -35,12 +38,12 @@
         android:id="@+id/secondFilmDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="12dp"
         android:layout_marginBottom="8dp"
         android:ellipsize="end"
         android:gravity="center"
-        android:text="@string/description_films"
         android:textSize="14sp"
+        android:text="Film description"
         app:layout_constraintEnd_toEndOf="@id/secondFilmName"
         app:layout_constraintStart_toStartOf="@id/secondFilmName"
         app:layout_constraintTop_toBottomOf="@id/secondFilmName" />
