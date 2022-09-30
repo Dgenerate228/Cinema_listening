@@ -8,7 +8,6 @@ import com.example.myapplication.databinding.RecyclerViewItemBinding
 import com.example.myapplication.model.FilmModel
 
 class FilmAdapter(
-
     private val onClicked: (FilmModel) -> Unit,
 ) : RecyclerView.Adapter<FilmAdapter.ViewHolder>() {
 
@@ -28,12 +27,11 @@ class FilmAdapter(
         val film = filmList[position]
         with(holder.binding) {
             filmName.text = film.name.ifEmpty { "Error" }
-            recyclerViewItemCl.setOnClickListener { onClicked(film) }
+            itemViewCv.setOnClickListener { onClicked(film) }
 
             if (film.image.isNotBlank()) {
                 Glide.with(photoImageView.context)
                     .load(film.image)
-                    //.circleCrop()
                     .placeholder(R.drawable.ic_launcher_foreground)
                     .error(R.drawable.ic_error)
                     .into(photoImageView)
