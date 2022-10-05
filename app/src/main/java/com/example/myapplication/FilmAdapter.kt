@@ -3,9 +3,32 @@ package com.example.myapplication
 import android.view.LayoutInflater
 import com.bumptech.glide.Glide
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.databinding.RecyclerViewItemBinding
 import com.example.myapplication.model.FilmModel
+
+class FilmDiffUtilCallback(
+    private val oldList: List<FilmModel>,
+    private val newList: List<FilmModel>,
+) : DiffUtil.Callback() {
+
+    override fun getOldListSize(): Int = oldList.size
+    override fun getNewListSize(): Int = newList.size
+
+    override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+        val oldFilm = oldList[oldItemPosition]
+        val newFilm = newList[newItemPosition]
+        return oldFilm.id == newFilm.id
+    }
+
+    override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+        val oldFilm = oldList[oldItemPosition]
+        val newFilm = newList[newItemPosition]
+        return oldFilm == newFilm
+    }
+
+}
 
 class FilmAdapter(
     private val onClicked: (FilmModel) -> Unit,
@@ -32,16 +55,18 @@ class FilmAdapter(
             if (film.image.isNotBlank()) {
                 Glide.with(photoImageView.context)
                     .load(film.image)
-                    .placeholder(R.drawable.ic_launcher_foreground)
+                    //.placeholder(R.drawable.ic_launcher_foreground)
                     .error(R.drawable.ic_error)
                     .into(photoImageView)
-            } else {
-                photoImageView.setImageResource(R.drawable.ic_launcher_foreground)
             }
+//            else {
+//                photoImageView.setImageResource(R.drawable.ic_launcher_foreground)
+//            }
 
         }
     }
 
+    // забыл че ета
     class ViewHolder(val binding: RecyclerViewItemBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun getItemCount(): Int = filmList.size
