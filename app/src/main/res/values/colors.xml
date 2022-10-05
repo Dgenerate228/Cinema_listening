@@ -7,4 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="background">#4E616C</color>
+    <color name="text_description">#9AABB5</color>
+    <color name="film_name_details_activity">#193646</color>
+    <color name="film_name">#9AABB5</color>
+    <color name="card_background_color">#323B40</color>
 </resources>

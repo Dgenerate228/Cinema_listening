@@ -1,52 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/secondPhotoImageView"
-        android:src = "@drawable/ic_launcher_foreground"
-        android:layout_width="300dp"
-        android:layout_height="340dp"
-        android:layout_marginHorizontal="8dp"
-        android:scaleType="centerCrop"
-        android:contentDescription="@string/content_description"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/secondFilmName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:gravity="center"
-        android:lines="1"
-        android:text="Film name"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/secondFilmDescription"
-        app:layout_constraintEnd_toEndOf="@+id/secondPhotoImageView"
-        app:layout_constraintStart_toStartOf="@+id/secondPhotoImageView"
-        app:layout_constraintTop_toBottomOf="@+id/secondPhotoImageView" />
-
-    <TextView
-        android:id="@+id/secondFilmDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="8dp"
-        android:ellipsize="end"
-        android:gravity="center"
-        android:textSize="14sp"
-        android:text="Film description"
-        app:layout_constraintEnd_toEndOf="@id/secondFilmName"
-        app:layout_constraintStart_toStartOf="@id/secondFilmName"
-        app:layout_constraintTop_toBottomOf="@id/secondFilmName" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/detailsPhotoImageView"
+                android:layout_width="380dp"
+                android:layout_height="400dp"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="6dp"
+                android:contentDescription="@string/content_description"
+                android:scaleType="fitXY"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/ic_launcher_foreground" />
+
+            <TextView
+                android:id="@+id/detailsFilmName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:lines="1"
+                android:maxLines="3"
+                android:textColor="@color/film_name_details_activity"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/detailsPhotoImageView"
+                app:layout_constraintStart_toStartOf="@+id/detailsPhotoImageView"
+                app:layout_constraintTop_toBottomOf="@+id/detailsPhotoImageView"
+                tools:text="Film name" />
+
+            <TextView
+                android:id="@+id/detailsFilmDescription"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="28dp"
+                android:layout_marginBottom="30dp"
+                android:ellipsize="end"
+                android:gravity="center_horizontal"
+                android:textColor="@color/text_description"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@id/buttonBack"
+                app:layout_constraintEnd_toEndOf="@id/detailsPhotoImageView"
+                app:layout_constraintStart_toStartOf="@id/detailsPhotoImageView"
+                app:layout_constraintTop_toBottomOf="@id/detailsFilmName"
+                tools:text="Film description" />
+
+            <Button
+                android:id="@+id/buttonBack"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_alignParentBottom="true"
+                android:text="Н А З А Д"
+                android:textColor="@color/text_description"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</LinearLayout>
