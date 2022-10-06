@@ -28,7 +28,6 @@ class FilmsListActivity : AppCompatActivity() {
 
     private fun openFilmDetails(film: FilmModel) {
         val intent = Intent(this, DetailsFilmActivity::class.java)
-      //  intent.putExtra(DetailsFilmActivity.ID, binding.filmsListRv.id)
         intent.putExtra(DetailsFilmActivity.FILM_NAME, film.name)
         intent.putExtra(DetailsFilmActivity.FILM_DESCRIPTION, film.description)
         intent.putExtra(DetailsFilmActivity.FILM_IMAGE, film.image)

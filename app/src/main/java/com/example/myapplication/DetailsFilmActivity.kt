@@ -43,7 +43,6 @@ class DetailsFilmActivity : AppCompatActivity() {
         binding.buttonBack.setOnClickListener {
             finish()
         }
-
     }
 
     companion object {

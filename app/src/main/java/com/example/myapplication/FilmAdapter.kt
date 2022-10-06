@@ -36,8 +36,10 @@ class FilmAdapter(
 
     var filmList: List<FilmModel> = emptyList()
         set(newValue) {
+            val diffCallback = FilmDiffUtilCallback(field, newValue)
+            val diffResult = DiffUtil.calculateDiff(diffCallback)
             field = newValue
-            notifyDataSetChanged()
+            diffResult.dispatchUpdatesTo(this)
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -55,14 +57,9 @@ class FilmAdapter(
             if (film.image.isNotBlank()) {
                 Glide.with(photoImageView.context)
                     .load(film.image)
-                    //.placeholder(R.drawable.ic_launcher_foreground)
                     .error(R.drawable.ic_error)
                     .into(photoImageView)
             }
-//            else {
-//                photoImageView.setImageResource(R.drawable.ic_launcher_foreground)
-//            }
-
         }
     }
 

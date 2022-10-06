@@ -15,7 +15,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-
             <ImageView
                 android:id="@+id/detailsPhotoImageView"
                 android:layout_width="380dp"
@@ -67,6 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_alignParentBottom="true"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:text="Н А З А Д"
                 android:textColor="@color/text_description"
                 android:textSize="16sp"
